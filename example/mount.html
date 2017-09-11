@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+</head>
+<body>
+	<div id="app">
+		
+	</div>
+	<p><button onclick="destroy()">销毁</button></p>
+	<p><button onclick="reload()">刷新</button></p>
+	<p><button onclick="tick()">更改数据</button></p>
+	<script type="text/javascript">
+
+		var jslong = Vue.extend({
+			template:`<p>{{msg}}</p>`,
+			data:function() {
+				return{
+					msg:'hello im jslong'
+				}
+			},
+			mounted:function() {
+				console.log('mounted被创建')
+			},
+			destroyed:function() {
+				console.log('已经销毁了')
+			},
+			updated:function() {
+				console.log('已经更新了')
+			}
+		})
+		var VM = new jslong().$mount('#app');
+		function destroy() {
+			VM.$destroy();
+		}
+		function reload() {
+			VM.$forceUpdate();
+		}
+		function tick() {
+			VM.msg='更改这个消息';
+			VM.$nextTick(function () {
+				console.log('我是回调函数')
+			})
+		}
+
+	</script>
+</body>
+</html>

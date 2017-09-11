@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+</head>
+<body>
+	<h1>Vue.extend 扩展实例构造器</h1>
+	<author></author>
+	<!-- 推荐以下这种 -->
+	<div id="author"></div>
+
+	<script type="text/javascript">
+		var authorExtend = Vue.extend({
+			template:"<p><a :href='authorUrl'>{{authorName}}</a></p>",
+			data:function () {
+				return{
+					authorName:'linchulong',
+					authorUrl:'http://www.baidu.com'
+				}
+			}
+		})
+		new authorExtend().$mount('#author');
+		new authorExtend().$mount('author');
+	</script>
+</body>
+</html>

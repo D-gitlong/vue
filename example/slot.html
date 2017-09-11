@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+</head>
+<body>
+	<div id="app">
+		<jslong>
+			<span slot="bolgUrl">{{jslongData.bolgUrl}}</span>
+			<span slot="netName">{{jslongData.netName}}</span>
+			<span slot="skill">{{jslongData.skill}}</span>
+		</jslong>
+	</div>
+	<template id="tep">
+		<div>
+			<p>博客地址：<slot name="bolgUrl"></slot></p>
+			<p>网名：<slot name="netName"></slot></p>
+			<p>技术类型：<slot name="skill"></slot></p>
+		</div>
+	</template>
+	<script type="text/javascript">
+		var jslong = {
+			template:"#tep"
+		}
+		var app = new Vue({
+			el:'#app',
+			data:{
+				jslongData:{
+					bolgUrl:'http://www.baidu.com',
+					netName:'技术龙',
+					skill:'web'
+				}
+			},
+			components:{
+				'jslong':jslong
+			}
+		})
+	</script>
+</body>
+</html>

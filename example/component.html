@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+</head>
+<body>
+	<div id="app">
+		<jslong></jslong>
+		<long></long>
+	</div>
+	
+	<script type="text/javascript">
+		Vue.component('jslong',{
+			template:`<h2>我是全局的自定义组件</h2>`
+		})
+		var app = new Vue({
+			el:'#app',
+			components:{
+				"long":{
+					template:`<h2 style="color:red">我是局部的自定义组件</h2>`
+				}
+			}
+		})
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+	<style type="text/css">
+		.red,.classA{color: red}
+		.classB{font-size: 20px;}
+	</style>
+</head>
+<body>
+	<h1>v-bind</h1>
+	<div id="app">
+		<div :class="className">绑定class</div>
+		<div :class="{classA:isOk}">对象绑定class</div>
+		<div :class="[classA,classB]">数组绑定class</div>
+		<div :class="isOk?classA:classB">三元运算符</div>
+		<div>
+			<input type="checkbox" id="isOk" v-model="isOk" name="">
+			<label for="isOk">{{isOk}}</label>
+		</div>
+		<div :style="{color:red,fontSize:font}">绑定style</div>
+		<div :style="styleObject">对象绑定style</div>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				className:'red',
+				isOk:false,
+				classA:'classA',
+				classB:'classB',
+				red:'green',
+				font:'30px',
+				styleObject:{
+					color:'blue',
+					fontSize:'60px'
+				}
+			},
+			methods:{
+
+			}
+		})
+	
+	</script>
+</body>
+</html>

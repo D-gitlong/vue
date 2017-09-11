@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+</head>
+<body>
+	<div id="app">
+		<header></header>
+	</div>
+	<script type="text/javascript">
+		var header_a = Vue.extend({
+			template:`
+				<p>{{msg}}---{{a}}</p>
+			`,
+			data:function(){
+				return {
+					msg:'im header'
+				}
+			},
+			props:['a']
+		})
+
+		new header_a({propsData:{a:2}}).$mount('header')
+	</script>
+</body>
+</html>

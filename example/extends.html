@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+</head>
+<body>
+	<div id="app">
+		${msg}
+		<button @click="add">增加</button>
+	</div>
+	<script type="text/javascript">
+		var extendsObj={
+			updated:function(){
+				console.log('我是外增加的')
+			},
+			methods:{
+				// 方法名一样的话不执行
+				add:function() {
+					this.msg++;
+					console.log('我是扩展的add')
+
+				}
+			}
+		}
+		var app = new Vue({
+			el:'#app',
+			data:{
+				msg:1
+			},
+			methods:{
+				add:function() {
+					this.msg++;
+					console.log('原生方法add')
+
+				}
+			},
+			updated:function(){
+				console.log('我是原生的update')
+			},
+			extends:extendsObj,
+			delimiters:['${','}']
+		})
+	</script>
+</body>
+</html>

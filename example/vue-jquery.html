@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+	<script type="text/javascript" src='../assets/js/jquery-3.1.0.min.js'></script>
+</head>
+<body>
+	<div id="app">
+		{{msg}}
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				msg:'hello world'
+			},
+			mounted:function() {
+				$('#app').html('我在vue里面用jQuery咯');
+
+			},
+			methods:{
+				add:function() {
+					console.log('调用了构造器内部的方法');
+					
+				}
+			}
+		})
+		app.add();
+		console.log(app)
+	</script>
+</body>
+</html>

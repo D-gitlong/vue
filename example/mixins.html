@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+</head>
+<body>
+	<div id="app">
+		{{msg}}
+		<button @click="add">增加</button>
+	</div>
+	<script type="text/javascript">
+		var addConsole = {
+			updated:function(){
+				console.log('数据变化了:'+this.msg)
+			}
+		}
+
+		Vue.mixin({
+			updated:function(){
+				console.log('全局的数据变化了:'+this.msg)
+			}
+		})
+
+		var app = new Vue({
+			el:'#app',
+			data:{
+				msg:1
+			},
+			methods:{
+				add:function() {
+					this.msg++
+				}
+			},
+			updated:function(){
+				console.log('原生数据变化了:'+this.msg)
+			},
+			mixins:[addConsole]
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+</head>
+<body>
+	<div id="app">
+		<long></long>
+	</div>
+	
+	<script type="text/javascript">
+		var city = {
+			template:`<p style="color:red">guangdong of china</p>`
+		}
+
+		var longComponent = {
+			template:`
+			<h2 style="color:red">long from china
+			<p><city></city></p>
+			</h2>`,
+			components:{
+				city
+			}
+		}
+
+		var app = new Vue({
+			el:'#app',
+			components:{
+				"long":longComponent 
+			}
+		})
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+</head>
+<body>
+	<div id="app">
+		<p>今日温度：{{dushu}}</p>
+		<p>穿衣建议：{{tips}}</p>
+		<p>
+			<button @click="add">增加温度</button>
+			<button @click="reducs">减少温度</button>
+		</p>
+	</div>
+	<script type="text/javascript">
+	var arr = [
+		'夹克长裙','T桖','羽绒服'
+	]
+		var app=new Vue({
+			el:'#app',
+			data:{
+				dushu:14,
+				tips:'夹克长裙'
+			},
+			methods:{
+				add:function() {
+					this.dushu=this.dushu+5
+				},
+				reducs:function () {
+					this.dushu=this.dushu-5
+				}
+			},
+			// watch:{
+			// 	dushu:function(newVal,oldVal) {
+			// 		if (newVal>=26) {
+			// 			this.tips=arr[1]
+			// 		}else if(newVal<26 && newVal>0){
+			// 			this.tips=arr[0]
+			// 		}else{
+			// 			this.tips=arr[2]
+			// 		}
+			// 	}
+			// }
+		})
+		// 第二种写法
+		app.$watch('dushu',function(newVal,oldVal) {
+			if (newVal>=26) {
+				this.tips=arr[1]
+			}else if(newVal<26 && newVal>0){
+				this.tips=arr[0]
+			}else{
+				this.tips=arr[2]
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+</head>
+<body>
+	<div id="app">
+		<component :is="who"></component>
+       <button @click="changeCom">danji</button>
+	</div>
+	<script type="text/javascript">
+		var comA = {
+			template:`
+				<h2>im comA</h2>
+			`
+		}
+		var comB = {
+			template:`
+				<h2>im comB</h2>
+			`
+		}
+		var comC = {
+			template:`
+				<h2>im comC</h2>
+			`
+		}
+		new Vue({
+			el:'#app',
+			data:{
+				who:'componentA'
+			},
+			components:{
+                "componentA":comA,
+                "componentB":comB,
+                "componentC":comC,
+            },
+            methods:{
+                changeCom:function(){
+                    if(this.who=='componentA'){
+                        this.who='componentB';
+                    }else if(this.who=='componentB'){
+                        this.who='componentC';
+                    }else{
+                        this.who='componentA';
+                    }
+                }
+            }
+		})
+	</script>
+</body>
+</html>

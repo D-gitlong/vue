@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+</head>
+<body>
+	<div id="app">
+		<long :from-here="msg"></long>
+	</div>
+	
+	<script type="text/javascript">
+
+		var app = new Vue({
+			el:'#app',
+			data:{
+				msg:'China'
+			},
+			components:{
+				"long":{
+					template:`<h2 style="color:red">long from {{fromHere}}</h2>`,
+					props:['fromHere']
+				}
+			}
+		})
+		
+	</script>
+</body>
+</html>

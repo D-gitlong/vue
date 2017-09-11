@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+</head>
+<body>
+	<div id="app">
+		{{msg}}
+	</div>
+	<template id="muban">
+		<h2 style="color:red">我是标签模板</h2>
+	</template>
+	<script type="x-template" id="muban2">
+		<h2 style="color:red">我是script模板</h2>
+	</script>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			data:{
+				msg:'hello world'
+			},
+			template:"#muban2"
+			// template:`
+			// 	<h2 style="color:red">我是选项模板</h2>
+			// `
+
+		})
+	</script>
+</body>
+</html>

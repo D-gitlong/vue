@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello</title>
+	<script type="text/javascript" src='../assets/js/vue.min.js'></script>
+</head>
+<body>
+	<h1>v-text v-html</h1>
+	<div id="app">
+		原始：{{msg}}
+		<h3>文本框-修饰符</h3>
+		<p><input type="text" v-model.lazy="msg" name=""></p>
+		<p><input type="text" v-model.number="msg" name=""></p>
+		<p><input type="text" v-model.trim="msg" name=""></p>
+		<hr>
+		<h3>文本域</h3>
+		<textarea v-model="msg"></textarea>
+		<hr>
+		<h3>多选框绑定一个值</h3>
+		<input type="checkbox" id="isTrue" v-model="isTrue" name="">
+		<label for="isTrue">{{isTrue}}</label>
+		<hr>
+		<input type="checkbox" id="aa" value="aa" v-model="webName" name="">
+		<label for="aa">aa</label>
+		<input type="checkbox" id="bb" value="bb" v-model="webName" name="">
+		<label for="bb">bb</label>
+		<input type="checkbox" id="cc" value="cc" v-model="webName" name="">
+		<label for="bb">cc</label>
+		<p>{{webName}}</p>
+		<hr>
+		<p>
+			<input type="radio" value="男" v-model="sex" name="">
+			<label>男</label>
+			<input type="radio" value="女" v-model="sex" name="">
+			<label>女</label>
+			<p>{{sex}}</p>
+		</p>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				msg:'hello',
+				isTrue:true,
+				webName:[],
+				sex:'男'
+			},
+			methods:{
+
+			}
+		})
+	
+	</script>
+</body>
+</html>
